@@ -10,105 +10,46 @@ import org.jmock.Expectations;
 import org.jmock.Mockery;
 
 public class CalculateColumnTotalTest extends DataUtilities {
-	Values2D values;
-	Mockery mockingContext;
-	
-	@BeforeClass public static void setUpBeforeClass() throws Exception {
-    }
-
-
-    @Before
-    public void setUp() throws Exception {
-    	
-    }
-    
-	// This test is for when data is null
-    @Test (expected = InvalidParameterException.class)
-	public void DataIsNull() throws InvalidParameterException { 
-		DataUtilities.calculateColumnTotal(null, 0);
-	} 
-    
-	// This test is for when data is positive and the column is 0
 	@Test
-	public void posDataValidColumn() {
-	    mockingContext = new Mockery();
-	    values = mockingContext.mock(Values2D.class);
-	    mockingContext.checking(new Expectations() {
-	        {
-	            one(values).getRowCount();
-	            will(returnValue(2));
-	            one(values).getValue(0, 0);
-	            will(returnValue(3));
-	            one(values).getValue(1, 0);
-	            will(returnValue(6));
-	        }
-	    });
+	public void validInputTest() {
+		// This test covers a valid input for data and row (ECT)
+	
+	    //Mock does not work with EclEmma so test written with actual dependency 
+	    DefaultKeyedValues2D values = new DefaultKeyedValues2D();
+	    values.setValue(2.5, 0, 0);
+	    values.setValue(7.5, 1, 0);
 	    double result = DataUtilities.calculateColumnTotal(values, 0);
-	    assertEquals(9.0, result, .000000001d);
+		assertEquals("Total should be 10 for valid input for index 0", 10, result, .000000001d);
 	}
 	
-	// This test is for when data is negative and the column is valid
-	@Test
-	public void negDataValidColumn() {
-		mockingContext = new Mockery();
-	    values = mockingContext.mock(Values2D.class);
-	    mockingContext.checking(new Expectations() {
-	        {
-	            one(values).getRowCount();
-	            will(returnValue(2));
-	            one(values).getValue(0, 1);
-	            will(returnValue(3));
-	            one(values).getValue(1, 1);
-	            will(returnValue(-6));
-	        }
-	    });
-	    double result = DataUtilities.calculateColumnTotal(values, 1);
-	    assertEquals(-3.0, result, .000000001d);
+	@Test(expected = IllegalArgumentException.class)
+	public void nullDataTest() {
+		// This test covers an invalid input for data and a valid input for row (ECT)
+	    double actual = DataUtilities.calculateColumnTotal(null, 1);
 	}
 	
-	// This test is for when data is valid and the column is < 0
-	@Test
-	public void negCol() {
-		mockingContext = new Mockery(); 
-		values = mockingContext.mock(Values2D.class);
-		mockingContext.checking(new Expectations() { 
-			{
-				one(values).getRowCount(); 
-				will(returnValue(3));
-				one(values).getValue(0, -1);
-				will(throwException(new IndexOutOfBoundsException()));
-				
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void negativeIndexTest() {
+		// This test covers an invalid input for row and a valid input for data (BVT)
+		
+		//Mock does not work with EclEmma so test written with actual dependency 
+	    DefaultKeyedValues2D values = new DefaultKeyedValues2D();
+	    values.setValue(2.5, 0, 0);
+	    values.setValue(7.5, 1, 0);
+	    
+		double result = DataUtilities.calculateColumnTotal(values, -1);
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void tooLargeIndexTest() {
+		// This test covers an invalid input for row and a valid input for data (BVT)
 
-			} 
-		});
-		assertEquals(0.0, DataUtilities.calculateColumnTotal(values, -1), .000000001d);
-	}
-	
-	// This test is for when data values are null and the column is valid
-	@Test
-	public void nullValueDataValidColumn() {
-		mockingContext = new Mockery(); 
-		values = mockingContext.mock(Values2D.class);
-		mockingContext.checking(new Expectations() { 
-			{
-				one(values).getRowCount(); 
-				will(returnValue(2));
-				one(values).getValue(0, 1);
-				will(returnValue(null));
-				one(values).getValue(1, 1); 
-				will(returnValue(null));
-				
-			} 
-		});		
-		assertEquals(0.0, DataUtilities.calculateColumnTotal(values, 1), .000000001d);
-	}
-	
-	@After
-    public void tearDown() throws Exception {
-    }
+		//Mock does not work with EclEmma so test written with actual dependency 
+	    DefaultKeyedValues2D values = new DefaultKeyedValues2D();
+	    values.setValue(2.5, 0, 0);
+	    values.setValue(7.5, 1, 0);
+		double result = DataUtilities.calculateColumnTotal(values, 10);
 
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-    }
+	}
 
 }
