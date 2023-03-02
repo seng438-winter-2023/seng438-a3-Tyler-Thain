@@ -2,12 +2,12 @@
 
 **Lab. Report #3 – Code Coverage, Adequacy Criteria and Test Case Correlation**
 
-| Group \#:      |     |
-| -------------- | --- |
-| Student Names: |     |
-| John Delsing               |   30116858  |
-|                |     |
-|                |     |
+| Group \#:   |    27     |
+| -------------- | ------- |
+| Jared          | Assen   |
+| John           | Delsing |
+| Ethan          | Kerr    |
+| Tyler          | Thain   |
 
 (Note that some labs require individual reports while others require one report
 for each group. Please see each lab document for details.)
