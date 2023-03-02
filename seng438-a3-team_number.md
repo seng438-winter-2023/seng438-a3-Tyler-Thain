@@ -36,7 +36,7 @@ Text…
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
-Range: 
+# Range: 
 
 <img width="656" alt="Screen Shot 2023-03-02 at 2 50 08 PM" src="https://user-images.githubusercontent.com/91746158/222566698-6a1b6a9a-855c-4daf-b21e-4933c3da6a3b.png">
 <img width="664" alt="Screen Shot 2023-03-02 at 2 50 29 PM" src="https://user-images.githubusercontent.com/91746158/222566759-e7f4b0ce-894b-4dae-9429-45ed4a3e7f5b.png">
