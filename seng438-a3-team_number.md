@@ -5,7 +5,7 @@
 | Group \#:      |     |
 | -------------- | --- |
 | Student Names: |     |
-|                |     |
+| John Delsing               |   30116858  |
 |                |     |
 |                |     |
 
@@ -14,7 +14,11 @@ for each group. Please see each lab document for details.)
 
 # 1 Introduction
 
-Text…
+In this lab our group looked back on Assignment 2 and used a new coverage tool EclEmma to determine the coverage. We then made new unit tests in order to increase the total coverage and reported the results 
+
+** Please note the EclEmma does not have condition coverage so we used method coverage instead **
+
+For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.4%, and method coverage was 47.8%. 
 
 # 2 Manual data-flow coverage calculations for X and Y methods
 
