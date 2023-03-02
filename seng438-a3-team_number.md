@@ -59,7 +59,9 @@ Text…
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
-Text…
+There are many pros of using EclEmma that were highlighted while we completed this lab. One was that it made it very easy to see the actual coverage that our test cases provided and where we needed to make new ones. Also, it worked well with mockery so we could continue to use mocking in our testing. By seeing the coverage we were easily able to determine how to improve tests and make effective test cases. 
+
+A con that could be considered is that EclEmma does not have every coverage tool. This was seen as out group had to use method coverge instead of condition coverage. 
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
