@@ -20,6 +20,8 @@ In this lab our group looked back on Assignment 2 and used a new coverage tool E
 
 For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.4%, and method coverage was 47.8%. 
 
+// add Data Utilities Test
+
 # 2 Manual data-flow coverage calculations for X and Y methods
 
 Text…
