@@ -65,7 +65,7 @@ A con that could be considered is that EclEmma does not have every coverage tool
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
-<h3>Requirements-Testing<\h3>
+<h3>Requirements-Testing</h3>
 
 # 8 A discussion on how the team work/effort was divided and managed
 
