@@ -532,10 +532,9 @@ Pair Coverage: 100% (all pair covered)
   </tr>
 </table>
 
-
 <p>
 Pair Coverage: 13/19 = 68.42%
-</p>  
+</p>
 
 # 3 A detailed description of the testing strategy for the new unit test
 
@@ -608,7 +607,7 @@ A con that could be considered is that EclEmma does not have every coverage tool
 
 # 8 A discussion on how the team work/effort was divided and managed
 
-Text…
+We split the work evenly among the team, with two members working on meeting coverage requirements for Range, and two members working on DataUtilities. For the manual data-flow coverage calculation, each sub-team of two worked on the respective method from Range or DataUtilities. This seemed to split the workload evenly. Additionally, to fill out the lab report, all of the team members met together to work collaboratively on the document. Each member would select a section, and work on it, with edits and additional contributions to each section made by other members. We managed the workload by remaining active in our group chat and communicating with each other often and clearly.
 
 # 9 Any difficulties encountered, challenges overcome, and lessons learned from performing the lab
 
