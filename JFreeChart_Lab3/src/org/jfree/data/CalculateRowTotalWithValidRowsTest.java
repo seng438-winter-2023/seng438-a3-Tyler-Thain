@@ -8,6 +8,7 @@ public class CalculateRowTotalWithValidRowsTest extends DataUtilities{
 
 	@Test
 	public void validInputTest() {
+		//Tests valid input for calculateRowTotal
 		//Mock does not work with EclEmma so test written with actual dependency 
 		DefaultKeyedValues2D values = new DefaultKeyedValues2D();
 	    values.setValue(2.5, 0, 0);
@@ -21,6 +22,7 @@ public class CalculateRowTotalWithValidRowsTest extends DataUtilities{
 	
 	@Test
 	public void tooManyValidRowsTest() {
+		//Tests what happens if validRows.size() > number of rows in data table for calculateRowTotal
 		//Mock does not work with EclEmma so test written with actual dependency 
 		DefaultKeyedValues2D values = new DefaultKeyedValues2D();
 	    values.setValue(2.5, 0, 0);
