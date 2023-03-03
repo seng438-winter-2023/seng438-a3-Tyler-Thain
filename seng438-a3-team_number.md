@@ -24,7 +24,17 @@ For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.
 
 # 2 Manual data-flow coverage calculations for DataUtillities.calculateColumnTotal and Range.Constraint
 
-Text…
+Def-Use Sets Per Statement:
+|Line|Defs  |Uses             |
+|----|------|-----------------|
+|1   |value |                 |
+|2   |result|value            |
+|3   |      |value            |
+|4   |      |value, this.upper|
+|5   |result|this.upper       |
+|7   |      |value, this.lower|
+|8   |result|this.lower       |
+|11  |      |result           |
 
 # 3 A detailed description of the testing strategy for the new unit test
 
