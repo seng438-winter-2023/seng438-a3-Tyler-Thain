@@ -227,7 +227,16 @@ Text…
 
 ## _DataUtilities_:
 
-![Line Coverage](DataUtilities_Images/LineCoverage.png "Line Coverage")
+![Coverage](DataUtilities_Images/1.png "Coverage")
+![Coverage](DataUtilities_Images/2.png "Coverage")
+![Coverage](DataUtilities_Images/3.png "Coverage")
+![Coverage](DataUtilities_Images/4.png "Coverage")
+![Coverage](DataUtilities_Images/5.png "Coverage")
+![Coverage](DataUtilities_Images/6.png "Coverage")
+![Coverage](DataUtilities_Images/7.png "Coverage")
+![Coverage](DataUtilities_Images/8.png "Coverage")
+![Coverage](DataUtilities_Images/9.png "Coverage")
+![Coverage](DataUtilities_Images/10.png "Coverage")
 
 ## _Statement:_
 
