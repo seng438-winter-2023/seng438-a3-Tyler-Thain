@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class CalculateColumnTotalWithValidRowsTest extends DataUtilities {
+public class CalculateColumnTotalWithValidColumnsTest extends DataUtilities {
 
 	@Test
 	public void validInputTest() {
@@ -22,7 +22,7 @@ public class CalculateColumnTotalWithValidRowsTest extends DataUtilities {
 	
 	@Test
 	public void tooManyValidColumnsTest() {
-		//Tests what happens if validColumns.size() > number of columns in data table for calculateRowTotal
+		//Tests what happens if validCols.size() > number of columns in data table for calculateRowTotal
 		//Mock does not work with EclEmma so test written with actual dependency 
 		DefaultKeyedValues2D values = new DefaultKeyedValues2D();
 	    values.setValue(2.5, 0, 0);

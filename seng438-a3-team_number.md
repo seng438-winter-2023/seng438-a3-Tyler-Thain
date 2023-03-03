@@ -24,6 +24,8 @@ For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.
 
 # 2 Manual data-flow coverage calculations for DataUtillities.calculateColumnTotal and Range.Constraint
 
+Range.Constraint:
+
 Def-Use Sets Per Statement:
 |Line|Defs  |Uses             |
 |----|------|-----------------|
@@ -191,6 +193,10 @@ Def-Use Pairs Per Variable:
 
 Pair Coverage: 100% (all pair covered)
 
+DataUtilities.calculateColumnTotal:
+
+
+
 # 3 A detailed description of the testing strategy for the new unit test
 
 Text…
@@ -211,7 +217,7 @@ Text…
 <img width="624" alt="Screen Shot 2023-03-02 at 2 51 50 PM" src="https://user-images.githubusercontent.com/91746158/222566940-eba7fead-0f8f-4258-aef4-031da91d335a.png">
 <img width="584" alt="Screen Shot 2023-03-02 at 2 52 03 PM" src="https://user-images.githubusercontent.com/91746158/222566971-97bbcd6d-137f-498d-89e1-f7bbf9b5a52b.png">
 
-## _Statment:_
+## _Statement:_
 <img width="762" alt="Screen Shot 2023-03-02 at 2 55 31 PM" src="https://user-images.githubusercontent.com/91746158/222567658-e5c0b02f-fc74-4c50-a3bc-b125d9e41662.png">
 
 ## _Branch:_
@@ -220,7 +226,18 @@ Text…
 ## _Method:_
 <img width="734" alt="Screen Shot 2023-03-02 at 2 56 17 PM" src="https://user-images.githubusercontent.com/91746158/222567752-1bccc01b-92a5-4ea8-98ae-5350744f29d3.png">
 
+## _DataUtilities_: 
 
+![Line Coverage](DataUtilities_Images/LineCoverage.png "Line Coverage")
+
+## _Statement:_
+![Line Coverage](DataUtilities_Images/LineCoverage.png "Statement Coverage")
+
+## _Branch:_
+![Branch Coverage](DataUtilities_Images/BranchCoverage.png "Branch Coverage")
+
+## _Method:_ 
+![Method Coverage](DataUtilities_Images/MethodCoverage.png "Method Coverage")
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
