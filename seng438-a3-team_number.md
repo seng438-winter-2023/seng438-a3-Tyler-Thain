@@ -36,6 +36,14 @@ Def-Use Sets Per Statement:
 |8   |result|this.lower       |
 |11  |      |result           |
 
+Def-Use Pairs Per Variable:
+|Variables  |Pairs (def, use)               |
+|-----------|-------------------------------|
+|value      |(1, 2), (1, 3), (1, 4), (1, 7) |
+|result     |(2, 11), (5, 11), (8, 11)      |
+|this.upper |(0, 4), (0, 5)                 |
+|this.lower |(0, 7), (0, 8)                 |
+
 # 3 A detailed description of the testing strategy for the new unit test
 
 Text…
