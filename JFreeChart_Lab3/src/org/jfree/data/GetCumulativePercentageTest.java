@@ -33,27 +33,12 @@ public class GetCumulativePercentageTest extends DataUtilities {
 	public void validDataObject() {
 		DefaultKeyedValues values = new DefaultKeyedValues();
 		double nums[] = {0.0, 1.0, 2.0, 3.0, 4.0};
-//		double keys[] = {0, 1, 2, 3, 4};
 		values.setValue(new Double(0), nums[0]);
 		values.setValue(new Double(1), nums[1]);
 		values.setValue(new Double(2), nums[2]);
 		values.setValue(new Double(3), nums[3]);
 		values.setValue(new Double(4), nums[4]);
 		
-//		Mockery mockingContext = new Mockery();
-//	    values = mockingContext.mock(KeyedValues.class);
-//	    mockingContext.checking(new Expectations() {
-//	        {
-//	        	for(int i = 0; i < 5; i++) {
-//	        		allowing(values).getKey(i);
-//	        		will(returnValue(i));
-//	        		allowing(values).getValue(i);
-//	        		will(returnValue(i));
-//	        	}
-//	        	allowing(values).getItemCount();
-//	        	will(returnValue(5));
-//	        }
-//	    });
 	    KeyedValues actual = getCumulativePercentages(values);
 		double expected[] = {0.0, 0.1, 0.3, 0.6, 1.0};
 		for(int i = 0; i < 5; i++) {
