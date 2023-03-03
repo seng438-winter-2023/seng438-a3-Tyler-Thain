@@ -29,6 +29,7 @@ public class GetCumulativePercentageTest extends DataUtilities {
 	}
 	
 	// This test covers for valid data
+	// Mock does not work with EclEmma so test written with actual dependency
 	@Test
 	public void validDataObject() {
 		DefaultKeyedValues values = new DefaultKeyedValues();
@@ -42,32 +43,12 @@ public class GetCumulativePercentageTest extends DataUtilities {
 	    KeyedValues actual = getCumulativePercentages(values);
 		double expected[] = {0.0, 0.1, 0.3, 0.6, 1.0};
 		for(int i = 0; i < 5; i++) {
-			System.out.println(actual.getValue(i));
 			assertEquals(expected[i], actual.getValue(i));
 		}
 	}
 	
-	// This test covers for invalid data
-//	@Test(expected = InvalidParameterException.class)
-//	public void invalidDataObject() throws InvalidParameterException{
-//		mockingContext = new Mockery();
-//		values = mockingContext.mock(KeyedValues.class);
-//		mockingContext.checking(new Expectations() {
-//			{
-//				for(int i = 0; i < 3; i++) {
-//	        		allowing(values).getKey(i);
-//	        		will(returnValue(i));
-//	        		allowing(values).getValue(i);
-//	        		will(returnValue("3"));
-//	        	}
-//	        	allowing(values).getItemCount();
-//	        	will(returnValue(3));
-//				
-//			}
-//		});
-//		getCumulativePercentages(values);
-//	}
-	
+	// This test covers the case of a value in a key-value pair being null
+	// Mock does not work with EclEmma so test written with actual dependency
 	@Test
 	public void nullValueInKeyedValuesTest() {
 		DefaultKeyedValues values = new DefaultKeyedValues();
@@ -80,7 +61,6 @@ public class GetCumulativePercentageTest extends DataUtilities {
 		KeyedValues actual = getCumulativePercentages(values);
 		double expected[] = {0.0, 0.1, 0.3, 0.6, 1.0};
 		for(int i = 0; i < 5; i++) {
-			System.out.println(actual.getValue(i));
 			assertEquals(expected[i], actual.getValue(i));
 		}
 	}

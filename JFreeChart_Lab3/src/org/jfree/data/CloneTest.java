@@ -12,14 +12,8 @@ public class CloneTest {
 	@Before
 	public void setUp() throws Exception {
 	}
-
-//	@Test
-//	public void sourceContainsNullTest() {
-//		double[][] source = {null, {0.1}};
-//		double[][] clone = DataUtilities.clone(source);
-//		assertFalse("Should not be equal", Arrays.deepEquals(source, clone));
-//	}
 	
+	// This test covers when the source object is valid
 	@Test
 	public void notNullTest() {
 		double[][] source = {{0.0}, {0.1}};
@@ -27,6 +21,7 @@ public class CloneTest {
 		assertTrue("Arrays should be equal", Arrays.deepEquals(source, clone));
 	}
 	
+	// This test covers when the source object is null
 	@Test(expected = IllegalArgumentException.class)
 	public void nullSourceTest() {
 		double[][] source = null;
