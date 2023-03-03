@@ -532,10 +532,9 @@ Pair Coverage: 100% (all pair covered)
   </tr>
 </table>
 
-
 <p>
 Pair Coverage: 13/19 = 68.42%
-</p>  
+</p>
 
 # 3 A detailed description of the testing strategy for the new unit test
 
@@ -608,11 +607,12 @@ A con that could be considered is that EclEmma does not have every coverage tool
 
 # 8 A discussion on how the team work/effort was divided and managed
 
-Text…
+We split the work evenly among the team, with two members working on meeting coverage requirements for Range, and two members working on DataUtilities. For the manual data-flow coverage calculation, each sub-team of two worked on the respective method from Range or DataUtilities. This seemed to split the workload evenly. Additionally, to fill out the lab report, all of the team members met together to work collaboratively on the document. Each member would select a section, and work on it, with edits and additional contributions to each section made by other members. We managed the workload by remaining active in our group chat and communicating with each other often and clearly.
 
 # 9 Any difficulties encountered, challenges overcome, and lessons learned from performing the lab
 
-Text…
+There were some challenges encountered early on in the lab. The setup took a bit of tinkering to get the coverage framework working properly, though those challenges were overcome rather quickly. The next challenge we encountered was that EclEmma did not interact properly with our mocking framework. We therefore had to edit our testing suite to remove the mocks, and instead instantiate the objects outright. This poses a bit of an issue in terms of the rigor of the unit tests, because each test is not depending upon the correct implementation of another unit of code. Once we removed our mocks, the coverage tool began working properly.
+We learned a lot about the principles of white-box testing, and how to better analyze the control flow of a unit of code. We also learned how to use code coverage metrics to improve our test suite. We analyzed our original coverage, and used that information to determine where we needed to increase coverage. Additionally, we went through the manual process of calculating pair coverage which gave us a deeper understanding of how coverage tools work. White-box testing is extremely valuable in uncovering bugs that may be hidden from black-box testing, as well as unexpected behaviour that deviates from or is not mentioned in specifications.
 
 # 10 Comments/feedback on the lab itself
 
