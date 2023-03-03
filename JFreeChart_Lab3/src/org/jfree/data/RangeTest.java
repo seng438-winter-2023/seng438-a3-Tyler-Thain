@@ -5,12 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.security.InvalidParameterException;
-
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class RangeTest {
@@ -30,24 +26,15 @@ public class RangeTest {
 	
 	
 	
-	// -------------- rangeTest ----------------------
+	// -------------- rangeTest ------------------------
+	
+	// Testing the constructor when the Lower is greater
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void constructorLowerBoundGreater() {
 		testRange = new Range(3, 2);
 		assertEquals("The lower bound value should be null", testRange);
 	}
-	
-	@Test
-	public void HigherGreaterThanLower() { 
-		Range range = new Range(5.0, 10.0);
-	} 
-	
-	@Test
-	public void BoundsAreTheSame() { 
-		Range range = new Range(5.0, 5.0);
-	}
-	
 	
 	
     // -------------- GetLowerBoundTest ----------------
@@ -367,24 +354,29 @@ public class RangeTest {
     
     // --------------------- getLength ------------------
     
+    
+    // Test with 2 negatives
     @Test
     public void lengthShouldBeFive() {
 	exampleRange = new Range (-10, -5);
 	assertEquals("The length of -10 and -5 should be 5", 5, exampleRange.getLength(), .000000001d);
     }
 
+    // Test with negative and zero
     @Test
     public void lengthShouldBeTen() {
 	exampleRange = new Range (-10, 0);
 	assertEquals("The length of -10 and 0 should be 10", 10, exampleRange.getLength(), .000000001d);
     }
 
+    // Test with zero and a positive
     @Test
     public void lengthShouldBeFifteen() {
 	exampleRange = new Range (0, 15);
 	assertEquals("The length of 0 and 15 should be 15", 15, exampleRange.getLength(), .000000001d);
     }
 
+    // Test with 2 positives
     @Test
     public void lengthShouldBeFourty() {
 	exampleRange = new Range (20, 60);
@@ -396,24 +388,24 @@ public class RangeTest {
     
     // ------------------- getCentralValue --------------------
     
+    // Test with negative and positive
     @Test
     public void centralValueNegPos() {
-	assertEquals("The central value of -1 and 1 should be 0",
-	0, exampleRange.getCentralValue(), .000000001d);
+	assertEquals("The central value of -1 and 1 should be 0", 0, exampleRange.getCentralValue(), .000000001d);
     }
 
+    // Test with 2 negatives
     @Test
     public void centralValue2Neg() {
 	exampleRange = new Range(-20, -10);
-	assertEquals("The central value of -20 and -10 should be -15",
-	-15, exampleRange.getCentralValue(), .000000001d);
+	assertEquals("The central value of -20 and -10 should be -15", -15, exampleRange.getCentralValue(), .000000001d);
     }
 
+    // Test with 2 positives
     @Test
     public void centralValue2Pos() {
 	exampleRange = new Range(10, 20);
-	assertEquals("The central value of 10 and 20 should be 15",
-	15, exampleRange.getCentralValue(), .000000001d);
+	assertEquals("The central value of 10 and 20 should be 15", 15, exampleRange.getCentralValue(), .000000001d);
     }
     
     
@@ -421,6 +413,7 @@ public class RangeTest {
     
     // -------------------- containsTest ------------------------
     
+    // Test if a range contains a number
     @Test
     public void contains10() {
 	exampleRange = new Range (5, 20);
@@ -430,6 +423,7 @@ public class RangeTest {
     
     // -------------------- hashTest ---------------------
     
+    // Test hash code when ranges are the same
     @Test
 	public void hashcodeForSame() {
 		Range range1 = new Range(0, 10);
@@ -437,7 +431,7 @@ public class RangeTest {
 		assertEquals("Hashcode for two similar ranges are not the same.", range2.hashCode(), range1.hashCode());
 	}
 	
-	
+	// Test hash code when ranges are different
 	@Test
 	public void hashcodeForDifferent() {
 		Range range1 = new Range(0, 10);
@@ -452,32 +446,37 @@ public class RangeTest {
 	
 	@Before
 	public void setUpEquals() throws Exception {
-		testRange = new Range(50, 100);
+		testRange = new Range(2, 12);
 	}
 	
+	// Test when a non Range object is given
 	@Test
 	public void NotRangeObject() {
 		assertEquals("Testing non Range object with Range object", false, testRange.equals("Scott"));
 	}
 	
+	// Test different Ranges to see if equal
 	@Test
 	public void DiffRangeObject1() {
 		assertEquals("Testing two different Range objects", false, testRange.equals(new Range(10, 20)));
 	}
 	
+	// Test the same Ranges
 	@Test
 	public void SameRangeObject() {
 		assertEquals("Testing Range object with itself", true, testRange.equals(testRange));
 	}
 	
+	// Test if only Lower is different
 	@Test
 	public void DiffLowerBound() {
-		assertEquals("Testing two Range objects with same upper bound but different lower bound", false, testRange.equals(new Range(60, 100)));
+		assertEquals("Testing two Range objects with same upper bound but different lower bound", false, testRange.equals(new Range(3, 12)));
 	}
 	
+	// Test if only Upper is different
 	@Test
 	public void DiffUpperBound() {
-		assertEquals("Testing two Range objects with same lower bound but different upper bound", false, testRange.equals(new Range(50, 90)));
+		assertEquals("Testing two Range objects with same lower bound but different upper bound", false, testRange.equals(new Range(2, 16)));
 	}
 	
 	
@@ -485,7 +484,7 @@ public class RangeTest {
 	
 	// ----------------- combineTest ---------------------
 	
-	
+	// Test combine upper when first Range is null
 	@Test
 	public void combineFirstParameterNullUpperBound() {
 		Range tempRange = Range.combine(null, new Range(0, 10)); 
@@ -493,6 +492,7 @@ public class RangeTest {
 		assertEquals("The combined upper bound should be 10 and it is " + upperBound, 10, upperBound, .000000001d);
 	}
 
+	// Test combine lower when first Range is null
 	@Test
 	public void combineFirstParameterNullLowerBound() {
 		Range tempRange = Range.combine(null, new Range(4, 10)); 
@@ -500,6 +500,7 @@ public class RangeTest {
 		assertEquals("The combined lower bound should be 4 and it is " + lowerBound, 4, lowerBound, .000000001d);
 	}
 
+	// Test combine upper when second Range is null
 	@Test
 	public void combineSecondParameterNullUpperBound() {
 		Range tempRange = Range.combine(new Range(-10, -1), null);
@@ -507,13 +508,15 @@ public class RangeTest {
 		assertEquals("The combined upper bound should be -1 and it is " + upperBound, -1, upperBound, .000000001d);
 	}
 
+	// Test combine lower when second Range is null
 	@Test
 	public void combineSecondParameterNullLowerBound() {
-		Range tempRange = Range.combine(null, new Range(-10, -1)); 
+		Range tempRange = Range.combine(new Range(-10, -1), null); 
 		double lowerBound = tempRange.getLowerBound(); 
 		assertEquals("The combined lower bound should be -10 and it is " + lowerBound, -10, lowerBound, .000000001d);
 	}
 
+	// Test combine upper with no null Range
 	@Test
 	public void combineNoParametersNullUpperBound() {
 		Range tempRange = Range.combine(new Range(1, 10), new Range(-10, -2)); 
@@ -521,6 +524,7 @@ public class RangeTest {
 		assertEquals("The combined upper bound should be 10 and it is " + upperBound, 10, upperBound, .000000001d);
 	}
 
+	// test combine lower with no null Range
 	@Test
 	public void combineNoParametersNullLowerBound() {
 		Range tempRange = Range.combine(new Range(1, 10), new Range(-10, -2)); 
@@ -532,22 +536,27 @@ public class RangeTest {
 	
 	// ----------------------- scaleTest ------------------
 	
+	// Test that a positive scale works
 	@Test
-	public void scalePositiveRangePositiveFactor() {
+	public void scalePositiveFactor() {
 		Range testRange1 = new Range(0, 5);
 		Range testScale = Range.scale(testRange1, 2);
 		assertEquals("The shifted value should be ", 10, testScale.getUpperBound(), .000000001d);
 	}
 	
+	// Test that negative scale is invalid
 	@Test(expected = IllegalArgumentException.class)
     public void testNull() throws IllegalArgumentException{
 		Range.scale(testRange, -1);
     }
 	
+	
+	
 	// -------------------- expandTest ------------------
 	
+	
 	@Test
-	public void expandLowerGreaterThanUpper_Lower() {
+	public void expandTest() {
 		Range testRange1 = new Range(1, 2); 
 		Range testRange2 = Range.expand(testRange1, -0.9, -0.9); 
 		assertEquals("The lower margin range will be 1.5", 1.5, testRange2.getLowerBound(), .000000001d);
@@ -556,93 +565,105 @@ public class RangeTest {
 	
 	// ------------------- expandToIncludeTest ----------------
 	
-		@Test
-		public void expandToIncludeNull() {
-			Range nullRange = null; 
-			Range testRange = Range.expandToInclude(nullRange, 1);
-			assertEquals("The lower value will be 1", 1, testRange.getLowerBound(), .000000001d);
-		}
+	// Test expand on null
+	@Test
+	public void expandToIncludeNull() {
+		Range nullRange = null; 
+		Range testRange = Range.expandToInclude(nullRange, 1);
+		assertEquals("The lower value will be 1", 1, testRange.getLowerBound(), .000000001d);
+	}
 
-		@Test
-		public void expandToInlcudeInsideRange() { 
-			Range testRange = Range.expandToInclude(new Range(4, 6), 5); 
-			assertEquals("The upper value will be 6", 6, testRange.getUpperBound(), .000000001d);
-		}
+	// Test expand to include something inside existing Range
+	@Test
+	public void expandToInlcudeInsideRange() { 
+		Range testRange = Range.expandToInclude(new Range(4, 6), 5); 
+		assertEquals("The upper value will be 6", 6, testRange.getUpperBound(), .000000001d);
+	}
 
-		@Test
-		public void expandToInlcudeOutside() { 
-			Range tempRange = Range.expandToInclude(new Range(1, 6), 12);
-			assertEquals("The upper value will be 12", 12, tempRange.getUpperBound(), .000000001d);
-		}
+	// Test expand to include something outside existing Range upper
+	@Test
+	public void expandToInlcudeOutside() { 
+		Range tempRange = Range.expandToInclude(new Range(1, 6), 12);
+		assertEquals("The upper value will be 12", 12, tempRange.getUpperBound(), .000000001d);
+	}
 
-		@Test
-		public void expandToInlcudeOutsideLower() {
-			Range tempRange = Range.expandToInclude(new Range(2, 6), 1);
-			assertEquals("The lower value will be 6", 6, tempRange.getUpperBound(), .000000001d);
-		}
+	// Test expand to include something outside existing Range lower
+	@Test
+	public void expandToInlcudeOutsideLower() {
+		Range tempRange = Range.expandToInclude(new Range(2, 6), 1);
+		assertEquals("The lower value will be 6", 6, tempRange.getUpperBound(), .000000001d);
+	}
 
 		
 		
 	// ----------------- combineIgnoringNaN -----------------
 		
+	// Test for valid Range and null Range
+	@Test
+	public void combineIgnoringNaN_Range1Null_Range2NotNull() {
+		testRange = new Range(2, 6); 
+		Range returnRange;
+		returnRange = Range.combineIgnoringNaN(null, testRange); 
+		assertEquals("The returned object should be Range(2,6)", returnRange, testRange);
+	}
+	
+	// Test for null Range combined with NaN Range
+	@Test
+	public void combineIgnoringNaN_Range1Null_Range2NaN() {
+		double NaNParam = Math.sqrt(-1); 
+		testRange = new Range(NaNParam, NaNParam); 
+		Range returnRange;
+		returnRange = Range.combineIgnoringNaN(null, testRange); 
+		assertNull("The return value should be null", returnRange);
+	}
 
-		@Test
-		public void combineIgnoringNaN_Range1Null_Range2NotNull() {
-			testRange = new Range(2, 6); 
-			Range returnRange;
-			returnRange = Range.combineIgnoringNaN(null, testRange); 
-			assertEquals("The returned object should be Range(2,6)", returnRange, testRange);
-		}
+	// Test for 2 null Ranges
+	@Test
+	public void combineIgnoringNaN_Range1Null_Range2Null() {
+		Range returnRange;
+		returnRange = Range.combineIgnoringNaN(null, null); 
+		assertNull("The return value should be null", returnRange);
+	}
 
-		@Test
-		public void combineIgnoringNaN_Range1Null_Range2NaN() {
-			double NaNParam = Math.sqrt(-1); 
-			testRange = new Range(NaNParam, NaNParam); 
-			Range returnRange;
-			returnRange = Range.combineIgnoringNaN(null, testRange); 
-			assertNull("The return value should be null", returnRange);
-		}
+	// Test NaN Range combined with null Range
+	@Test
+	public void combineIgnoringNaN_Range1NaN_Range2Null() {
+		double NaNParam = Math.sqrt(-1); 
+		testRange = new Range(NaNParam, NaNParam); 
+		Range returnRange;
+		returnRange = Range.combineIgnoringNaN(testRange, null); 
+		assertNull("The return value should be null", returnRange);
+	}
 
-		@Test
-		public void combineIgnoringNaN_Range1Null_Range2Null() {
-			Range returnRange;
-			returnRange = Range.combineIgnoringNaN(null, null); 
-			assertNull("The return value should be null", returnRange);
-		}
+	// Test for valid Range combined with a null Range
+	@Test
+	public void combineIgnoringNaN_Range1NotNull_Range2Null() {
+		testRange = new Range(2, 6); 
+		Range returnRange;
+		returnRange = Range.combineIgnoringNaN(testRange, null); 
+		assertEquals("The return value should be Range(2,6)", returnRange, testRange);
+	}
 
-		@Test
-		public void combineIgnoringNaN_Range1NaN_Range2Null() {
-			double NaNParam = Math.sqrt(-1); 
-			testRange = new Range(NaNParam, NaNParam); 
-			Range returnRange;
-			returnRange = Range.combineIgnoringNaN(testRange, null); 
-			assertNull("The return value should be null", returnRange);
-		}
+	// Test for 2 valid, not null Ranges
+	@Test
+	public void combineIgnoringNaN_Range1NotNull_Range2NotNull_NoNaN() {
+		testRange = new Range(2, 6); 
+		Range testRange2 = new Range(4, 7);
+		Range returnRange;
+		returnRange = Range.combineIgnoringNaN(testRange, testRange2); 
+		assertEquals("The return value should be Range(2,7)", returnRange, new Range(2, 7));
+	}
 
-		@Test
-		public void combineIgnoringNaN_Range1NotNull_Range2Null() {
-			testRange = new Range(2, 6); 
-			Range returnRange;
-			returnRange = Range.combineIgnoringNaN(testRange, null); 
-			assertEquals("The return value should be Range(2,6)", returnRange, testRange);
-		}
-
-		@Test
-		public void combineIgnoringNaN_Range1NotNull_Range2NotNull_NoNaN() {
-			testRange = new Range(2, 6); 
-			Range testRange2 = new Range(4, 7);
-			Range returnRange;
-			returnRange = Range.combineIgnoringNaN(testRange, testRange2); 
-			assertEquals("The return value should be Range(2,7)", returnRange, new Range(2, 7));
-		}
-
-		@Test
-		public void combineIgnoringNaN_Range1NotNull_Range2NotNull_AllNaN() {
-			double NaNParam1 = Math.sqrt(-1); 
-			double NaNParam2 = Math.sqrt(-2);
-			testRange = new Range(NaNParam1, NaNParam2); 
-			Range returnRange;
-			returnRange = Range.combineIgnoringNaN(testRange, testRange); 
-			assertNull("The return value should be null", returnRange);
-		}   
+	// Test for combining 2 NaN Ranges
+	@Test
+	public void combineIgnoringNaN_Range1NotNull_Range2NotNull_AllNaN() {
+		double NaNParam1 = Math.sqrt(-1); 
+		double NaNParam2 = Math.sqrt(-2);
+		testRange = new Range(NaNParam1, NaNParam2); 
+		Range returnRange;
+		returnRange = Range.combineIgnoringNaN(testRange, testRange); 
+		assertNull("The return value should be null", returnRange);
+	}
 }
+
+
