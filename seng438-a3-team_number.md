@@ -44,6 +44,153 @@ Def-Use Pairs Per Variable:
 |this.upper |(0, 4), (0, 5)                 |
 |this.lower |(0, 7), (0, 8)                 |
 
+<span style="text-decoration:underline;">Pairs Covered By Each Test:</span>
+
+
+<table>
+  <tr>
+   <td><strong>Test</strong>
+   </td>
+   <td><strong>Variables</strong>
+   </td>
+   <td><strong>Pairs</strong>
+   </td>
+  </tr>
+  <tr>
+   <td rowspan="4" >belowRangeTest
+   </td>
+   <td>value
+   </td>
+   <td>(1, 2), (1, 3), (1, 4), (1, 7)
+   </td>
+  </tr>
+  <tr>
+   <td>result
+   </td>
+   <td>(8, 11)
+   </td>
+  </tr>
+  <tr>
+   <td>this.upper
+   </td>
+   <td>(0, 4)
+   </td>
+  </tr>
+  <tr>
+   <td>this.lower
+   </td>
+   <td>(0, 7), (0, 8)
+   </td>
+  </tr>
+  <tr>
+   <td rowspan="4" >onLowerBoundTest
+   </td>
+   <td>value
+   </td>
+   <td>(1, 2)
+   </td>
+  </tr>
+  <tr>
+   <td>result
+   </td>
+   <td>(2, 11)
+   </td>
+  </tr>
+  <tr>
+   <td>this.upper
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>this.lower
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td rowspan="4" >withinRangeTest
+   </td>
+   <td>value
+   </td>
+   <td>(1, 2), (1, 3)
+   </td>
+  </tr>
+  <tr>
+   <td>result
+   </td>
+   <td>(2, 11)
+   </td>
+  </tr>
+  <tr>
+   <td>this.upper
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>this.lower
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td rowspan="4" >onUpperBoundTest
+   </td>
+   <td>value
+   </td>
+   <td>(1, 2), (1, 3)
+   </td>
+  </tr>
+  <tr>
+   <td>result
+   </td>
+   <td>(2, 11)
+   </td>
+  </tr>
+  <tr>
+   <td>this.upper
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>this.lower
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td rowspan="4" >aboveRangeTest
+   </td>
+   <td>value
+   </td>
+   <td>(1, 2), (1, 3), (1, 4), (1, 7)
+   </td>
+  </tr>
+  <tr>
+   <td>result
+   </td>
+   <td>(5, 11)
+   </td>
+  </tr>
+  <tr>
+   <td>this.upper
+   </td>
+   <td>(0, 4), (0, 5)
+   </td>
+  </tr>
+  <tr>
+   <td>this.lower
+   </td>
+   <td>(0, 7)
+   </td>
+  </tr>
+</table>
+
+
+Pair Coverage: 100% (all pair covered)
+
 # 3 A detailed description of the testing strategy for the new unit test
 
 Text…
