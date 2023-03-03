@@ -19,18 +19,18 @@ public class CreateNumberArrayTest {
     }
 
     // Test for null data parameter	
-    @Test(expected = InvalidParameterException.class)
-	public void nullInputTest() throws InvalidParameterException {
+    @Test(expected = IllegalArgumentException.class)
+	public void nullInputTest() throws IllegalArgumentException {
 		Number[] actual = DataUtilities.createNumberArray(null);
 	}
 	
     // Test for valid data parameter
     @Test
 	public void validInputTest() {
-		Number[] expected = {-1.1, 0, 15.6};
-		double[] input = {-1.1, 0, 15.6};
+		Number[] expected = {-1.1, 0.0, 15.6};
+		double[] input = {-1.1, 0.0, 15.6};
 		Number[] actual = DataUtilities.createNumberArray(input);
-		assertArrayEquals("The actual array should contain the following: {-1.1, 0, 15.6}", expected, actual);
+		assertArrayEquals("The actual array should contain the following: {-1.1, 0.0, 15.6}", expected, actual);
 	}
 
     @After

@@ -15,8 +15,8 @@ public class CreateNumberArray2DTest {
 	public void setUp() throws Exception {
 	}
 
-	@Test(expected = InvalidParameterException.class)
-	public void nullInputTest() throws InvalidParameterException {
+	@Test(expected = IllegalArgumentException.class)
+	public void nullInputTest() throws IllegalArgumentException {
 		// This test covers when data is null (ECT)
 		Number[][] actual = DataUtilities.createNumberArray2D(null);
 	}

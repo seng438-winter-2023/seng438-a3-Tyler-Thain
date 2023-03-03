@@ -19,8 +19,8 @@ public class ShiftTest {
     }
 
     // Test to confirm inputing null parameters throws InvalidParameterException
-    @Test(expected = InvalidParameterException.class)
-    public void testNullBase() throws InvalidParameterException{
+    @Test(expected = IllegalArgumentException.class)
+    public void testNullBase() throws IllegalArgumentException{
 		Range.shift(null, 0);
     }
 
@@ -59,7 +59,7 @@ public class ShiftTest {
     @Test
     public void testPositiveBoundary() {
     	Range range1 = new Range(1, 3);
-    	Range range2 = new Range(-1, 1);
+    	Range range2 = new Range(0, 1);
     	assertEquals("Range(1, 3) shifted by -2 should result Range(0, 1)", range2, Range.shift(range1, -2));
     }	
 	
