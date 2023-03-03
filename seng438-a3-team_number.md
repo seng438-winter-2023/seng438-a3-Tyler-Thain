@@ -26,6 +26,8 @@ For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.
 
 Range.Constraint:
 
+<img width="263" alt="Screen Shot 2023-03-03 at 8 37 06 AM" src="https://user-images.githubusercontent.com/91746158/222762142-1232e36b-ebdb-4f60-9f65-0f15b3872ed6.png">
+
 Def-Use Sets Per Statement:
 |Line|Defs |Uses |
 |----|------|-----------------|
