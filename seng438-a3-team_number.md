@@ -2,23 +2,23 @@
 
 **Lab. Report #3 – Code Coverage, Adequacy Criteria and Test Case Correlation**
 
-| Group \#:   |    27     |
-| -------------- | ------- |
-| Jared          | Assen   |
-| John           | Delsing |
-| Ethan          | Kerr    |
-| Tyler          | Thain   |
+| Group \#: | 27      |
+| --------- | ------- |
+| Jared     | Assen   |
+| John      | Delsing |
+| Ethan     | Kerr    |
+| Tyler     | Thain   |
 
 (Note that some labs require individual reports while others require one report
 for each group. Please see each lab document for details.)
 
 # 1 Introduction
 
-In this lab our group looked back on Assignment 2 and used a new coverage tool EclEmma to determine the coverage. We then made new unit tests in order to increase the total coverage and reported the results 
+In this lab our group looked back on Assignment 2 and used a new coverage tool EclEmma to determine the coverage. We then made new unit tests in order to increase the total coverage and reported the results
 
 ** Please note the EclEmma does not have condition coverage so we used method coverage instead **
 
-For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.4%, and method coverage was 47.8%. 
+For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.4%, and method coverage was 47.8%.
 
 // add Data Utilities Test
 
@@ -27,27 +27,26 @@ For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.
 Range.Constraint:
 
 Def-Use Sets Per Statement:
-|Line|Defs  |Uses             |
+|Line|Defs |Uses |
 |----|------|-----------------|
-|1   |value |                 |
-|2   |result|value            |
-|3   |      |value            |
-|4   |      |value, this.upper|
-|5   |result|this.upper       |
-|7   |      |value, this.lower|
-|8   |result|this.lower       |
-|11  |      |result           |
+|1 |value | |
+|2 |result|value |
+|3 | |value |
+|4 | |value, this.upper|
+|5 |result|this.upper |
+|7 | |value, this.lower|
+|8 |result|this.lower |
+|11 | |result |
 
 Def-Use Pairs Per Variable:
-|Variables  |Pairs (def, use)               |
+|Variables |Pairs (def, use) |
 |-----------|-------------------------------|
-|value      |(1, 2), (1, 3), (1, 4), (1, 7) |
-|result     |(2, 11), (5, 11), (8, 11)      |
-|this.upper |(0, 4), (0, 5)                 |
-|this.lower |(0, 7), (0, 8)                 |
+|value |(1, 2), (1, 3), (1, 4), (1, 7) |
+|result |(2, 11), (5, 11), (8, 11) |
+|this.upper |(0, 4), (0, 5) |
+|this.lower |(0, 7), (0, 8) |
 
 <span style="text-decoration:underline;">Pairs Covered By Each Test:</span>
-
 
 <table>
   <tr>
@@ -190,16 +189,13 @@ Def-Use Pairs Per Variable:
   </tr>
 </table>
 
-
 Pair Coverage: 100% (all pair covered)
 
 DataUtilities.calculateColumnTotal:
 
-
-
 # 3 A detailed description of the testing strategy for the new unit test
 
-Text…
+We first began by examining the current code coverage achieved by our black box unit tests from Assignment 2. We then tackled statement coverage first. Using EclEmma, we were able to see which lines of the source code for Range and DataUtilities were being executed by our existing tests. From there, we examined the control flow structure of the different methods. We wrote unit tests according to the documentation, incorporating cases that will trigger different control flow blocks to reach code that was not reached by our original tests. Additionally, DataUtilities got four new methods in the new version of the code. These were obviously not covered by our existing test suite, so we were able to increase our statement coverage significantly by writing basic tests for those new methods. After reaching our statement coverage goals, we then turned to branch coverage. Our efforts to meet statement coverage goals also increased out branch coverage significantly, but not quite to the appropriate level. We examined which branch directions were covered by our existing statement coverage tests, and then wrote tests according to the documentation to make the control flow statement evaluate to true if the previous test made it false, and vice-versa. Writing a few of these tests for each method in Range and DataUtilities increased our branch coverage to above the required level. Finally, since EclEmma does not have condition coverage capabilities, we used method coverage for our last metric as suggested in the lab manual. Our efforts increasing coverage in the other two metrics meant that we wrote tests for each method, and thus our method coverage was 100%. In general, our strategy was to first read and understand the code and its control flow. We then wrote tests to exercise different parts of the code according to those control flow structures in order to achieve our goal coverages.
 
 # 4 A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
@@ -207,7 +203,7 @@ Text…
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
-## _Range_: 
+## _Range_:
 
 <img width="656" alt="Screen Shot 2023-03-02 at 2 50 08 PM" src="https://user-images.githubusercontent.com/91746158/222566698-6a1b6a9a-855c-4daf-b21e-4933c3da6a3b.png">
 <img width="664" alt="Screen Shot 2023-03-02 at 2 50 29 PM" src="https://user-images.githubusercontent.com/91746158/222566759-e7f4b0ce-894b-4dae-9429-45ed4a3e7f5b.png">
@@ -218,32 +214,38 @@ Text…
 <img width="584" alt="Screen Shot 2023-03-02 at 2 52 03 PM" src="https://user-images.githubusercontent.com/91746158/222566971-97bbcd6d-137f-498d-89e1-f7bbf9b5a52b.png">
 
 ## _Statement:_
+
 <img width="762" alt="Screen Shot 2023-03-02 at 2 55 31 PM" src="https://user-images.githubusercontent.com/91746158/222567658-e5c0b02f-fc74-4c50-a3bc-b125d9e41662.png">
 
 ## _Branch:_
+
 <img width="755" alt="Screen Shot 2023-03-02 at 2 55 52 PM" src="https://user-images.githubusercontent.com/91746158/222567728-b679bddc-172f-43a6-99da-2253af48c9c4.png">
 
 ## _Method:_
+
 <img width="734" alt="Screen Shot 2023-03-02 at 2 56 17 PM" src="https://user-images.githubusercontent.com/91746158/222567752-1bccc01b-92a5-4ea8-98ae-5350744f29d3.png">
 
-## _DataUtilities_: 
+## _DataUtilities_:
 
 ![Line Coverage](DataUtilities_Images/LineCoverage.png "Line Coverage")
 
 ## _Statement:_
+
 ![Line Coverage](DataUtilities_Images/LineCoverage.png "Statement Coverage")
 
 ## _Branch:_
+
 ![Branch Coverage](DataUtilities_Images/BranchCoverage.png "Branch Coverage")
 
-## _Method:_ 
+## _Method:_
+
 ![Method Coverage](DataUtilities_Images/MethodCoverage.png "Method Coverage")
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
-There are many pros of using EclEmma that were highlighted while we completed this lab. One was that it made it very easy to see the actual coverage that our test cases provided and where we needed to make new ones. Also, it worked well with mockery so we could continue to use mocking in our testing. By seeing the coverage we were easily able to determine how to improve tests and make effective test cases. 
+There are many pros of using EclEmma that were highlighted while we completed this lab. One was that it made it very easy to see the actual coverage that our test cases provided and where we needed to make new ones. Also, it worked well with mockery so we could continue to use mocking in our testing. By seeing the coverage we were easily able to determine how to improve tests and make effective test cases.
 
-A con that could be considered is that EclEmma does not have every coverage tool. This was seen as out group had to use method coverge instead of condition coverage. 
+A con that could be considered is that EclEmma does not have every coverage tool. This was seen as out group had to use method coverge instead of condition coverage.
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
