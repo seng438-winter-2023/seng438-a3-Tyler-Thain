@@ -627,8 +627,11 @@ EclEmma is not without its issues though. Firstly, EclEmma lacks a conditional c
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
 <h3>Requirements-Testing:</h3>
+There are many advantages of requirements testing with the most important being that it ensures that the software meets the functionality. As tests are made from requirements, it makes sure that the code follows the intended functionality. Furthermore, requirements testing will make it easy to find defects as it is very simple to trace back where the failure is coming from and what test caused an error. A disadvantage could be that time is wasted on redundant tests that test the same requirement as another test. Also, if tests are not made correctly, it can be easy to miss edge cases that cause problems later. 
 
 <h3>Coverage-Testing:</h3>
+Coverage-testing is very good at making sure that every code path is tested. This inturn leads to more reliable software that has all of its lines, branches, and methods covered. Also, this testing style can show where unreachable code is that can be taken out of the software as well as unused code that does nothing within the program. Another advantage is that it can identify unexpected behavior that is not related to requirements but is still important to know if they are present within the code. A disadvantage of coverage-testing is that it can waste time by over-testing methods that have already been covered. Also, it does not show if the requirements of the software are met so it is important to use coverage-testing with requirements-testing. 
+
 
 # 8 A discussion on how the team work/effort was divided and managed
 
