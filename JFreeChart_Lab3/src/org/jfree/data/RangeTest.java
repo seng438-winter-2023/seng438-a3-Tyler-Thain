@@ -194,7 +194,7 @@ public class RangeTest {
     @Test
     public void testPositiveBoundary() {
     	Range range1 = new Range(1, 3);
-    	Range range2 = new Range(-1, 1);
+    	Range range2 = new Range(0, 1);
     	assertEquals("Range(1, 3) shifted by -2 should result Range(0, 1)", range2, Range.shift(range1, -2));
     }	
     
@@ -391,6 +391,7 @@ public class RangeTest {
     // Test with negative and positive
     @Test
     public void centralValueNegPos() {
+    	exampleRange = new Range (-1.0,1.0);
 	assertEquals("The central value of -1 and 1 should be 0", 0, exampleRange.getCentralValue(), .000000001d);
     }
 
@@ -417,7 +418,7 @@ public class RangeTest {
     @Test
     public void contains10() {
 	exampleRange = new Range (5, 20);
-	assertEquals("The range of 5 and 20 should contain 10", true, exampleRange.contains(100));
+	assertEquals("The range of 5 and 20 should contain 10", true, exampleRange.contains(10));
     }
     
     
