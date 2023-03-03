@@ -24,7 +24,7 @@ For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.
 
 # 2 Manual data-flow coverage calculations for DataUtillities.calculateColumnTotal and Range.Constraint
 
-Range.Constraint:
+## Range.Constraint:
 
 Def-Use Sets Per Statement:
 |Line|Defs  |Uses             |
@@ -193,9 +193,349 @@ Def-Use Pairs Per Variable:
 
 Pair Coverage: 100% (all pair covered)
 
-DataUtilities.calculateColumnTotal:
+## DataUtilities.calculateColumnTotal:
+
+![Data Flow Graph](DataUtilities_Images/DataFlowGraph.png "Data Flow Graph")
+
+<p>
+<span style="text-decoration:underline;">Def-Use Sets Per Statement: </span>
+</p>
+<table>
+  <tr>
+   <td><strong>Line</strong>
+</p>
+   </td>
+   <td><strong>Defs</strong>
+</p>
+   </td>
+   <td><strong>Uses</strong>
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>1
+</p>
+   </td>
+   <td>data, column
+</p>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>2
+</p>
+   </td>
+   <td>
+   </td>
+   <td>data
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>3
+</p>
+   </td>
+   <td>total
+</p>
+   </td>
+   <td>
+   </td>
+  </tr>
+  <tr>
+   <td>4
+</p>
+   </td>
+   <td>rowCount
+</p>
+   </td>
+   <td>data
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>5
+</p>
+   </td>
+   <td>r
+</p>
+   </td>
+   <td>rowCount, r
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>6
+</p>
+   </td>
+   <td>n
+</p>
+   </td>
+   <td>data, column, r
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>7
+</p>
+   </td>
+   <td>
+   </td>
+   <td>n
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>8
+</p>
+   </td>
+   <td>
+   </td>
+   <td>total, n
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>11
+</p>
+   </td>
+   <td>r2
+</p>
+   </td>
+   <td>rowCount, r2
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>12
+</p>
+   </td>
+   <td>n
+</p>
+   </td>
+   <td>data, column, r2
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>13
+</p>
+   </td>
+   <td>
+   </td>
+   <td>n
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>14
+</p>
+   </td>
+   <td>
+   </td>
+   <td>total, n
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>17
+</p>
+   </td>
+   <td>
+   </td>
+   <td>total
+</p>
+   </td>
+  </tr>
+</table>
+
+<p>
+<span style="text-decoration:underline;">Def-Use Pairs Per Variable:</span>
+</p>
+<table>
+  <tr>
+   <td><strong>Variable</strong>
+</p>
+   </td>
+   <td><strong>Pairs (def, use)</strong>
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>data
+</p>
+   </td>
+   <td>(1,2), (1,4), (1,6), (1,12)
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>column
+</p>
+   </td>
+   <td>(1,6), (1,12)
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>total
+</p>
+   </td>
+   <td>(3,8), (3,14), (3,17)
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>rowCount
+</p>
+   </td>
+   <td>(4,5), (4,11)
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>r
+</p>
+   </td>
+   <td>(5,5), (5,6)
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>n
+</p>
+   </td>
+   <td>(6,7), (6,8), (12,13), (12,14)
+</p>
+   </td>
+  </tr>
+  <tr>
+   <td>r2
+</p>
+   </td>
+   <td>(11,11), (11,12)
+</p>
+   </td>
+  </tr>
+</table>
+
+<p>
+<span style="text-decoration:underline;">Pairs Covered By Each Test:</span>
+</p>
+
+<table>
+  <tr>
+   <td><strong>Test</strong>
+   </td>
+   <td><strong>Variables</strong>
+   </td>
+   <td><strong>Pairs</strong>
+   </td>
+  </tr>
+  <tr>
+   <td rowspan="7" >validInputTest
+   </td>
+   <td>data
+   </td>
+   <td>(1,2), (1,4), (1,6)
+   </td>
+  </tr>
+  <tr>
+   <td>column
+   </td>
+   <td>(1,6)
+   </td>
+  </tr>
+  <tr>
+   <td>total
+   </td>
+   <td>(3,8), (3,17)
+   </td>
+  </tr>
+  <tr>
+   <td>rowCount
+   </td>
+   <td>(4,5), (4,11)
+   </td>
+  </tr>
+  <tr>
+   <td>r
+   </td>
+   <td>(5,5), (5,6)
+   </td>
+  </tr>
+  <tr>
+   <td>n
+   </td>
+   <td>(6,7), (6,8)
+   </td>
+  </tr>
+  <tr>
+   <td>r2
+   </td>
+   <td>(11,11)
+   </td>
+  </tr>
+  <tr>
+   <td>nullDataTest
+   </td>
+   <td>data
+   </td>
+   <td>(1,2)
+   </td>
+  </tr>
+  <tr>
+   <td>negativeIndexTest
+   </td>
+   <td>data
+   </td>
+   <td>(1,2)
+   </td>
+  </tr>
+  <tr>
+   <td rowspan="6" >tooLargeIndexTest
+   </td>
+   <td>data
+   </td>
+   <td>(1,2), (1,4), (1,6)
+   </td>
+  </tr>
+  <tr>
+   <td>column
+   </td>
+   <td>(1,6)
+   </td>
+  </tr>
+  <tr>
+   <td>total
+   </td>
+   <td>(3,8)
+   </td>
+  </tr>
+  <tr>
+   <td>rowCount
+   </td>
+   <td>(4,5)
+   </td>
+  </tr>
+  <tr>
+   <td>r
+   </td>
+   <td>(5,5), (5,6)
+   </td>
+  </tr>
+  <tr>
+   <td>n
+   </td>
+   <td>(6,7), (6,8)
+   </td>
+  </tr>
+</table>
 
 
+<p>
+Pair Coverage: 13/19 = 68.42%
+</p>  
 
 # 3 A detailed description of the testing strategy for the new unit test
 
