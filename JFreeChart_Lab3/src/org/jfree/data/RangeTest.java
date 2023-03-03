@@ -665,6 +665,16 @@ public class RangeTest {
 		returnRange = Range.combineIgnoringNaN(testRange, testRange); 
 		assertNull("The return value should be null", returnRange);
 	}
+	
+	// Test for combining a non NaN Range and a NaN Range
+	@Test
+	public void combineIgnoringNaN_Range1_Range2NaN() {
+		double NaNParam = Math.sqrt(-1); 
+		testRange = new Range(NaNParam, NaNParam); 
+		Range returnRange;
+		returnRange = Range.combineIgnoringNaN(new Range(2,6), testRange); 
+		assertEquals("The return value should be Range(2,6)", returnRange, new Range(2,6));
+	}
 }
 
 
