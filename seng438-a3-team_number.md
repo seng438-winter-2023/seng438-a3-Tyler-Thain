@@ -560,7 +560,7 @@ Originally this method was not covered by our black box testing from the previou
 
 5. EqualTest()
 
-The equal(double[][] a, double[][] b) method was not present in the previous version of DataUtilities in the JFreeChart used in Assignment 2. Thus, none of this code was covered by our black-box testing suite, and so statement, branch, and method coverage for this unit of code was 0%. The tests we wrote increased the statement, branch, and method coverage for the equals() method to 100%, and also contributed to the overall coverage of the DataUtilities class by our white-box testing suite.
+The equal(double[][] a, double[][] b) method was not present in the previous version of DataUtilities in the JFreeChart used in Assignment 2. Thus, none of this code was covered by our black-box testing suite, and so statement, branch, and method coverage for this unit of code was 0%. The tests we wrote increased the statement, branch, and method coverage for the equals() method to 100%, and also contributed to the overall coverage of the DataUtilities class by our white-box testing suite. This method was tested to 100% statement and branch coverage.
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
