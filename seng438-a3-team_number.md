@@ -24,7 +24,7 @@ For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.
 
 # 2 Manual data-flow coverage calculations for DataUtillities.calculateColumnTotal and Range.Constraint
 
-## Range.Constraint:
+## Range.Constrain:
 
 <img width="263" alt="Screen Shot 2023-03-03 at 8 37 06 AM" src="https://user-images.githubusercontent.com/91746158/222762142-1232e36b-ebdb-4f60-9f65-0f15b3872ed6.png">
 
