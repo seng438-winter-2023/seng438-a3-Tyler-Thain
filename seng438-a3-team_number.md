@@ -14,13 +14,11 @@ for each group. Please see each lab document for details.)
 
 # 1 Introduction
 
-In this lab our group looked back on Assignment 2 and used a new coverage tool EclEmma to determine the coverage. We then made new unit tests in order to increase the total coverage and reported the results
+In this lab, our group looked back on the test suite we developed in Assignment 2 through the new lense of coverage criteria. With the benefit of being able to see the source code, we could now utilize white-box testing techniques to improve our test suite. This was accomplished through increasing code coverage as measured by three key metrics: statement coverage, branch coverage, and method coverage. In two methods, we also employed def-use pair coverage.
 
 ** Please note the EclEmma does not have condition coverage so we used method coverage instead **
 
-For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.4%, and method coverage was 47.8%.
-
-// add Data Utilities Test
+For rangeTest, the initial statement coverage was 35.3%, branch coverage was 35.4%, and method coverage was 47.8%. The original coverage for DataUtilities was similarly sparse. Our methodology and results follow.
 
 # 2 Manual data-flow coverage calculations for DataUtillities.calculateColumnTotal and Range.Constraint
 
