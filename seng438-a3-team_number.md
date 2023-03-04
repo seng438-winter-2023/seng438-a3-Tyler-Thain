@@ -545,27 +545,22 @@ We first began by examining the current code coverage achieved by our black box 
 1. constructorLowerBoundGreater()
 
 This test was made in order to test that the Range constructor could handle a case where the lower bound is greater than the upper bound. When we input the line testRange = new Range(3,2), we expect that an IllegalArgumentException is thrown as the bounds are illegal. This test was important to add as it was not made in the previous assignment and must be implemented to cover the constructor and ensure that its functionality is tested.
-        
-        
+
 2. combineIgnoringNaN_Range1_Range2NaN()
 
 This test was created in assignment 3 as it was not already made in assignment and is crucial to improving the coverage. What this test does is create a NaN Range and a valid Range that is not null. It then sends these to the method combineIgnoringNaN where the function will return the Range that is equal to the valid Range. When this happens the coverage for the method is increased. Furthermore, this test covers the min and max methods through the combineIgnoringNaN method and allows the two private functions to be covered when the test is done. It also increases the branch coverage by giving the if statements a unique result which leads to better coverage. We also increase the method coverage as now the min and max methods are also being covered.
 
-
-3.  CalculateColumnTotalTest() 
+3.  CalculateColumnTotalTest()
 
 For DataUtilities.CalculateColumnTotal(Values2D data, int column), a data flow graph was constructed and def-use pairs were determined. The tests were then evaluated by which DU-pairs they covered to determine that only 13 of 19 pairs were tested. Upon evaluation of the code, it was seen that in order to reach the final DU-pairs rowCount needs to be negative which is not possible. Therefore, this section of code is unreachable so getting 100% pair coverage, line coverage, and branch coverage is not possible. With a valid input test, negative index test, null data test, and index too large test, the rest of the DU-pairs, lines, and branches were able to be covered. The majority of the line coverage comes from the valid input test and the other three tests serve to test boundary value conditions and exceptions.
 
-
-4. CalculateRowTotalWithValidColumnTest() 
+4. CalculateRowTotalWithValidColumnTest()
 
 Originally this method was not covered by our black box testing from the previous lab. Therefore, the tests written for this method increased method coverage, line coverage, and branch coverage for DataUtilities in the DataUtilities.CalculateRowTotal(Values2D data, int column, int[ ] validCols) method. A valid input test was written first to cover a for loop and one side of an if statement in the for loop. Then, to test the other side of the second if statement in the for loop, a test with null data in the table was created to up the branch and statement coverage. A test for too many valid columns was also created to test a boundary condition. These tests were able to reach all lines but one and one side of the first if branch. When evaluating the code to write a test to cover the other side of the first if statement, it was discovered that the code was unreachable so no test would be able to cover the missing lines. For the first if, colCount can never be less than zero because the data table cannot have a negative number of columns.
-
 
 5. EqualTest()
 
 The equal(double[][] a, double[][] b) method was not present in the previous version of DataUtilities in the JFreeChart used in Assignment 2. Thus, none of this code was covered by our black-box testing suite, and so statement, branch, and method coverage for this unit of code was 0%. The tests we wrote increased the statement, branch, and method coverage for the equals() method to 100%, and also contributed to the overall coverage of the DataUtilities class by our white-box testing suite.
-
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
@@ -627,11 +622,10 @@ EclEmma is not without its issues though. Firstly, EclEmma lacks a conditional c
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
 <h3>Requirements-Testing:</h3>
-There are many advantages of requirements testing with the most important being that it ensures that the software meets the functionality. As tests are made from requirements, it makes sure that the code follows the intended functionality. Furthermore, requirements testing will make it easy to find defects as it is very simple to trace back where the failure is coming from and what test caused an error. A disadvantage could be that time is wasted on redundant tests that test the same requirement as another test. Also, if tests are not made correctly, it can be easy to miss edge cases that cause problems later. 
+There are many advantages of requirements testing with the most important being that it ensures that the software meets the functionality. As tests are made from requirements, it makes sure that the code follows the intended functionality. Furthermore, requirements testing will make it easy to find defects as it is very simple to trace back where the failure is coming from and what test caused an error. Finally, requirements-based testing makes it very easy to detect when functionality is missing entirely. A disadvantage could be that time is wasted on redundant tests that test the same requirement repeatedly in only slight variations. Also, if tests are not made correctly or if the testing plan is poorly designed, it can be easy to miss edge cases that cause problems later.
 
 <h3>Coverage-Testing:</h3>
-Coverage-testing is very good at making sure that every code path is tested. This inturn leads to more reliable software that has all of its lines, branches, and methods covered. Also, this testing style can show where unreachable code is that can be taken out of the software as well as unused code that does nothing within the program. Another advantage is that it can identify unexpected behavior that is not related to requirements but is still important to know if they are present within the code. A disadvantage of coverage-testing is that it can waste time by over-testing methods that have already been covered. Also, it does not show if the requirements of the software are met so it is important to use coverage-testing with requirements-testing. 
-
+Coverage-testing is very good at making sure that every code path is tested. This in turn leads to more reliable software that has all of its lines, branches, and methods covered. Also, this testing style can show where unreachable code is that can be taken out of the software as well as unused code that does nothing within the program. Another advantage is that it can identify unexpected behavior that is not related to requirements but is still important to know if they are present within the code. A disadvantage of coverage-testing is that it can waste time by over-testing methods, and repeating coverage of the same statements, branches, or conditions. Also, it does not show if the requirements of the software are met so it is important to use coverage-testing with requirements-testing. One writes tests in accordance with the documentation and oracle, but the goal is not to test every requirement. If the code is sufficiently covered, the testing may be complete without covering every requirement. Thus, you cannot tell if functionality is missing, only that the code that is present works.
 
 # 8 A discussion on how the team work/effort was divided and managed
 
